@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title>Kirjoita päiväkirjaan</title>
+</head>
+<body>
+    <h1>Luo päiväkirjaan uusi merkintä</h1>
+
+    <form th:action="@{/writeDiary}" method="post">
+        <label>
+        <textarea name="teksti">Kirjoita tähän</textarea>
+        </label>
+        <button type="submit">Lisää</button>
+    </form>
+</body>
+</html>
