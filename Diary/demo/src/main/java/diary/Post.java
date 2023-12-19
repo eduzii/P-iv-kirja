@@ -1,22 +1,17 @@
 package diary;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
 import java.sql.Date;
 import java.sql.Time;
-import java.util.Set;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "events")
-@Data
-@NoArgsConstructor
-public class Event {
+public class Post {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long eventId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(columnDefinition = "TEXT")
     private String eventTitle;
@@ -55,4 +50,3 @@ public class Event {
     }
 
 }
-
