@@ -8,7 +8,7 @@
 <body>
     <h1>Luo päiväkirjaan uusi merkintä</h1>
 
-    <form th:action="@{/posts}" method="post">
+    <form th:action="@{/post}" method="post">
         <label for="title">Otsikko: </label>
         <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
        <input type="text" id="title" name="title"><br><br>
