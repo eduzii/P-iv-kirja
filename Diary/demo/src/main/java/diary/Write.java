@@ -20,7 +20,7 @@ public class Write {
 
     @PostMapping("/kirjoita")
     public String writeDiary(@RequestParam("title") String title, @RequestParam("content") String content){
-        DiaryEntry entry = new DiaryEntry(title, content);
+        EventEntry entry = new EventEntry(title, content);
         entityManager.persist(entry);
         return "write";
     }
