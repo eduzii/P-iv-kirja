@@ -4,21 +4,31 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/css/styles.css}">
     <title>Kirjoita päiväkirjaan</title>
+    <script>
+        // Simple client-side validation before submitting form
+        function validateForm() {
+            var title = document.forms["diaryForm"]["title"].value;
+            var content = document.forms["diaryForm"]["content"].value;
+            if (title == "" || content == "") {
+                alert("Title and content must be filled out");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </head>
 <body>
-    <h1>Luo päiväkirjaan uusi merkintä</h1>
+<h1>Luo päiväkirjaan uusi merkintä</h1>
 
-    <form th:action="@{/post}" method="post">
-        <label for="title">Otsikko: </label>
-        <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
-       <input type="text" id="title" name="title"><br><br>
+<form name="diaryForm" th:action="@{/kirjoita}" method="post" onsubmit="return validateForm()">
+    <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+    <label for="title">Otsikko: </label>
+    <input type="text" id="title" name="title"><br><br>
 
+    <label for="content">Teksti:</label>
+    <textarea id="content" name="content"></textarea><br><br>
 
-        <label for="content">Teksti:</label>
-        <textarea id="content" name="content"></textarea>
-
-
-        <button type="submit">Lisää</button>
-    </form>
+    <button type="submit">Lisää</button>
+</form>
 </body>
 </html>

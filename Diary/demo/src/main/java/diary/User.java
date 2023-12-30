@@ -1,12 +1,9 @@
 package diary;
+
 import jakarta.persistence.*;
-import jdk.jfr.Category;
-import jdk.jfr.Event;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.Set;
-
 
 @Entity
 @Table(name="users")
@@ -17,9 +14,10 @@ public class User implements Serializable {
     @Column(name="id")
     private int userId;
 
-    @Column(name="name")
+    @Column(name="username")
     private String username;
 
-
+    @Column(name="password_hash")
+    private String passwordHash;
 
 }
